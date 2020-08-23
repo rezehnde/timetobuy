@@ -22,6 +22,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         return [
             BeforeEntityUpdatedEvent::class => ['encodePassword'],
             BeforeEntityPersistedEvent::class => ['encodePassword'],
+            BeforeEntityDeletedEvent::class => ['canDeleteGroup'],
         ];
     }
 
