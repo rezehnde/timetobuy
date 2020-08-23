@@ -10,6 +10,11 @@
 				<h2>Section title</h2>
 				<div class="table-responsive">
 					<table class="table table-striped table-sm">
+					{% for row in content %}
+						<tr><td>{{ row }}</td><td>{{ row.USD }}</td><tr>
+					</table>
+					{% endfor %}
+					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
 								<th>#</th>
