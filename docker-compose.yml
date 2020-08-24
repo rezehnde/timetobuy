@@ -1,0 +1,76 @@
+version: "3"
+services:
+
+    nginx:
+        image: nginx:stable-alpine
+        container_name: nginx
+        ports:
+          - "8000:80"
+        volumes:
+          - .:/var/www/html
+          - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+          - php
+        networks:
+          - timetobuy
+    
+    php:
+        build:
+          context: .
+          dockerfile: ./docker/php/Dockerfile
+        container_name: php
+        volumes:
+          - .:/var/www/html
+        ports:
+          - "9000:9000"
+        networks:
+          - timetobuy
+    
+    composer:
+        image: composer:latest
+        container_name: composer
+        volumes:
+          - .:/var/www/html
+        working_dir: /var/www/html
+        depends_on:
+          - php
+        networks:
+          - timetobuy
+
+    mysql:
+        image: mysql
+        container_name: mysql
+        restart: always
+        tty: true
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: timetobuy
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+        networks:
+            - timetobuy
+        volumes:
+            - data:/var/lib/mysql            
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        depends_on:
+            - mysql
+        ports:
+            - '4040:80'            
+        restart: unless-stopped
+        environment:
+            PMA_HOST: 'mysql:3306'
+            PMA_USER: root
+            PMA_PASSWORD: root
+        networks:
+            - timetobuy
+
+networks:
+    timetobuy:
+    
+volumes:
+    data:
