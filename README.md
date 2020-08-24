@@ -8,19 +8,19 @@ A free app for current and historical foreign exchange rates published by the [E
 
 ## Running locally
 1. Download the project
+2. Configure the database into .env file and run:
+3. Run the commands bellow
 ```
 mkdir timetobuy
 cd timetobuy
 git init
 git remote add origin https://github.com/rezehnde/timetobuy.git
 git pull origin master
-composer update
+docker-compose up -d --build
+docker-compose run --rm composer update
+docker-compose run --rm php bin/console doctrine:database:create
+docker-compose run --rm php bin/console doctrine:database:migrate
+docker-compose run --rm php bin/console doctrine:fixtures:load
 ```
-2. Configure the database into .env file and run:
-```
-php bin/console doctrine:database:create
-php bin/console doctrine:migrations:migrate
-php bin/console doctrine:fixtures:load
-```
-
+4. Browser [//localhost:8000](//localhost:8000)
 _Icon by [Icons8](https://icons8.com)_
