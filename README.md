@@ -23,4 +23,6 @@ docker-compose run --rm php bin/console doctrine:database:migrate
 docker-compose run --rm php bin/console doctrine:fixtures:load
 ```
 4. Browser [//localhost:8000](//localhost:8000)
+
+### Credits
 _Icon by [Icons8](https://icons8.com)_
