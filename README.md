@@ -4,7 +4,7 @@ A free app for current and historical foreign exchange rates published by the [E
 ## Features
 - An API endpoit at /api where is possible to manage users and groups powered by [API Platform](https://api-platform.com/).
 - An ADMIN endpoint where administrators can manage users and groups powered by [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html).
-- A DASHBOARD prototype where will be possible to normal users view historical foreign exchange rates published by the [European Central Bank](https://exchangeratesapi.io/) #wip.
+- A DASHBOARD where is possible see a chart with historical foreign exchange rates information published by the [European Central Bank](https://exchangeratesapi.io/)
 
 ## UML Diagrams
 - [Database ER](https://app.lucidchart.com/documents/view/fab19c66-dac6-4593-8c3e-db541dd7c595)
@@ -27,6 +27,12 @@ docker-compose run --rm php php bin/console doctrine:migrations:migrate
 docker-compose run --rm php php bin/console doctrine:fixtures:load
 ```
 4. Browser [//localhost:8000](//localhost:8000)
+
+### Build with
+- [API Platform](https://api-platform.com/)
+- [ExchangeRatesAPI](https://github.com/benmajor/ExchangeRatesAPI)
+- [EasyAdmin](https://github.com/EasyCorp/EasyAdminBundle)
+- [Docker](https://www.docker.com/)
 
 ### Credits
 _Icon by [Icons8](https://icons8.com)_
