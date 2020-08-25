@@ -22,9 +22,7 @@
 					<canvas id="chart-{{ chart.currency }}"></canvas>
 					<script type="text/javascript">
 					(function () {
-					// Graphs
 					var ctx = document.getElementById('chart-{{ chart.currency }}')
-					// eslint-disable-next-line no-unused-vars
 					var myChart = new Chart(ctx, {
 						type: 'line',
 						data: {
