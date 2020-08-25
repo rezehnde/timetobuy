@@ -6,11 +6,22 @@ A free app for current and historical foreign exchange rates published by the [E
 - An ADMIN endpoint where administrators can manage users and groups powered by [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html).
 - A DASHBOARD where is possible see a chart with historical foreign exchange rates information published by the [European Central Bank](https://exchangeratesapi.io/)
 
+## Live
+- As **admin user**, browse https://timetobuy.rezehnde.com/dashboard and see two charts that were assigned to you, and also browse https://timetobuy.rezehnde.com/admin to manage users and groups
+  - e-mail: admin@rezehnde.com
+  - password: 123456
+  
+- As **normal user**, browse https://timetobuy.rezehnde.com/dashboard and see one chart that was assigned to you, but you cannot browse https://timetobuy.rezehnde.com/admin
+  - e-mail: user@rezehnde.com
+  - password: 123456
+  
+- **Play** with the API at https://timetobuy.rezehnde.com/api
+
 ## UML Diagrams
 - [Database ER](https://app.lucidchart.com/documents/view/fab19c66-dac6-4593-8c3e-db541dd7c595)
 - [Domain Model](https://app.lucidchart.com/documents/view/cf232d10-2eb4-46f1-ae75-574167070460)
 
-## Running locally
+## Running locally with Docker
 1. Download the project
 2. Configure the database into .env file and run:
 3. Run the commands bellow
