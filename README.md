@@ -6,6 +6,10 @@ A free app for current and historical foreign exchange rates published by the [E
 - An ADMIN endpoint where administrators can manage users and groups powered by [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html).
 - A DASHBOARD prototype where will be possible to normal users view historical foreign exchange rates published by the [European Central Bank](https://exchangeratesapi.io/) #wip.
 
+## UML Diagrams
+- [Database ER](https://app.lucidchart.com/invitations/accept/9553cefb-f077-47ca-ba30-e7e690ef0425)
+- [Domain Model](https://app.lucidchart.com/invitations/accept/6f283daf-d6e9-41d7-9004-be91880f93e4)
+
 ## Running locally
 1. Download the project
 2. Configure the database into .env file and run:
