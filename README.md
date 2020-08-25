@@ -4,7 +4,12 @@ A free app for current and historical foreign exchange rates published by the [E
 ## Features
 - An API endpoit at /api where is possible to manage users and groups powered by [API Platform](https://api-platform.com/).
 - An ADMIN endpoint where administrators can manage users and groups powered by [EasyAdmin](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html).
+
+![Admin Screenshot](https://github.com/rezehnde/timetobuy/blob/master/public/images/admin_screenshot.png?raw=true "Admin Screenshot")
+
 - A DASHBOARD where is possible see a chart with historical foreign exchange rates information published by the [European Central Bank](https://exchangeratesapi.io/)
+
+![Dashboard Screenshot](https://github.com/rezehnde/timetobuy/blob/master/public/images/dashboard_screenshot.png?raw=true "Dashboard Screenshot")
 
 ## Live
 - As **admin user**, browse https://timetobuy.rezehnde.com/dashboard and see two charts that were assigned to you, and also browse https://timetobuy.rezehnde.com/admin to manage users and groups
