@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use \BenMajor\ExchangeRatesAPI\ExchangeRatesAPI;
+use Symfony\Component\HttpFoundation\Response;
 
 class DashboardController extends AbstractController
 {
@@ -21,15 +22,25 @@ class DashboardController extends AbstractController
      */
     public function page(): Response
     {
-        $response = $this->client->request(
-            'GET',
-            'https://api.exchangeratesapi.io/history?start_at=2020-01-01&end_at=2020-06-30&base=EUR&symbols=USD'
-        );
+        $lookup = new ExchangeRatesAPI();
+        $rates  = $lookup->addDateFrom(date('Y-m-d', strtotime("-3 Months")))
+            ->addDateTo(date('Y-m-d'))
+            ->addRate('USD')
+            ->setBaseCurrency('EUR')
+            ->fetch()
+            ->getRates();
 
-        $rates = [];
-        $statusCode = $response->getStatusCode();
-        $content = $response->toArray();
+        ksort($rates);
 
-        return $this->render('dashboard.html.twig', ['content' => $content]);
+        $dates = [];
+        $values = [];
+        foreach ($rates as $date => $rate) {
+            array_push($dates, "'".$date."'");
+            foreach ($rate as $currency => $value) {
+                array_push($values, $value);
+            }
+        }
+
+        return $this->render('dashboard.html.twig', ['dates' => $dates, 'values' => $values, 'currency' => 'USD']);
     }
 }

@@ -12,17 +12,17 @@ class GroupFixtures extends Fixture
     {
         $group = new Group();
         $group->setName('Euro x U.S. Dollar');
-        $group->setApiUrl('https://api.exchangeratesapi.io/history?start_at=2020-01-01&end_at=2020-06-30&base=EUR&symbols=USD');
+        $group->setApiUrl('USD');
         $manager->persist($group);
 
         $group = new Group();
-        $group->setName('U.S. Dollar x Euro');
-        $group->setApiUrl('https://api.exchangeratesapi.io/history?start_at=2020-01-01&end_at=2020-06-30&base=USD&symbols=EUR');
+        $group->setName('Euro x Brazilian Real');
+        $group->setApiUrl('BRL');
         $manager->persist($group);
 
         $group = new Group();
-        $group->setName('Japanese Yen x Euro');
-        $group->setApiUrl('https://api.exchangeratesapi.io/history?start_at=2020-01-01&end_at=2020-06-30&base=JPY&symbols=EUR');
+        $group->setName('Euro x Japanese Yen');
+        $group->setApiUrl('JPY');
         $manager->persist($group);
 
         $manager->flush();
