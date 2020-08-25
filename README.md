@@ -23,7 +23,7 @@ git pull origin master
 docker-compose up -d --build
 docker-compose run --rm composer update
 docker-compose run --rm php php bin/console doctrine:database:create
-docker-compose run --rm php php bin/console doctrine:database:migrate
+docker-compose run --rm php php bin/console doctrine:migrations:migrate
 docker-compose run --rm php php bin/console doctrine:fixtures:load
 ```
 4. Browser [//localhost:8000](//localhost:8000)

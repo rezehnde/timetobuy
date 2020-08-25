@@ -13,45 +13,56 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 
-				<h2>EURO x {{ currency }}</h2>
-				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1076" height="454" style="display: block; width: 1076px; height: 454px;"></canvas>
-				<script type="text/javascript">
-				(function () {
-				'use strict'
+				{% if charts is null %}
+					<p>You are not seeing the chart because you aren't associated to any group.</p>
+				{% else %}
 
-				feather.replace()
+					{% for chart in charts %}
+					<div class="chart">
+					<h2>EURO x {{ chart.currency }}</h2>
+					<canvas class="my-4 w-100 chartjs-render-monitor" id="chart-{{ chart.currency }}" width="1076" height="454" style="display: block; width: 1076px; height: 454px;"></canvas>
+					<script type="text/javascript">
+					(function () {
+					'use strict'
 
-				// Graphs
-				var ctx = document.getElementById('myChart')
-				// eslint-disable-next-line no-unused-vars
-				var myChart = new Chart(ctx, {
-					type: 'line',
-					data: {
-					labels: [{{ dates|join(', ')|raw }}],
-					datasets: [{
-						data: [{{ values|join(', ') }}],
-						lineTension: 0,
-						backgroundColor: 'transparent',
-						borderColor: '#007bff',
-						borderWidth: 4,
-						pointBackgroundColor: '#007bff'
-					}]
-					},
-					options: {
-					scales: {
-						yAxes: [{
-						ticks: {
-							beginAtZero: false
-						}
+					feather.replace()
+
+					// Graphs
+					var ctx = document.getElementById('chart-{{ chart.currency }}')
+					// eslint-disable-next-line no-unused-vars
+					var myChart = new Chart(ctx, {
+						type: 'line',
+						data: {
+						labels: [{{ chart.dates|join(', ')|raw }}],
+						datasets: [{
+							data: [{{ chart.values|join(', ') }}],
+							lineTension: 0,
+							backgroundColor: 'transparent',
+							borderColor: '#007bff',
+							borderWidth: 4,
+							pointBackgroundColor: '#007bff'
 						}]
-					},
-					legend: {
-						display: false
-					}
-					}
-				})
-				}())
-				</script>
+						},
+						options: {
+						scales: {
+							yAxes: [{
+							ticks: {
+								beginAtZero: false
+							}
+							}]
+						},
+						legend: {
+							display: false
+						}
+						}
+					})
+					}())
+					</script>
+					</div>
+					{% endfor %}
+
+
+				{% endif %}
 			</div>
 		</div>
 	</div>

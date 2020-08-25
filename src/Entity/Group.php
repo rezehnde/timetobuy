@@ -30,7 +30,7 @@ class Group
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $api_url;
+    private $currency;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="groups")
@@ -64,14 +64,14 @@ class Group
         return $this;
     }
 
-    public function getApiUrl(): ?string
+    public function getCurrency(): ?string
     {
-        return $this->api_url;
+        return $this->currency;
     }
 
-    public function setApiUrl(string $api_url): self
+    public function setCurrency(string $currency): self
     {
-        $this->api_url = $api_url;
+        $this->currency = $currency;
 
         return $this;
     }
