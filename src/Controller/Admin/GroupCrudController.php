@@ -20,7 +20,7 @@ class GroupCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
-            UrlField::new('api_url'),
+            TextField::new('currency'),
         ];
     }
 

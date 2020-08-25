@@ -7,8 +7,8 @@ A free app for current and historical foreign exchange rates published by the [E
 - A DASHBOARD prototype where will be possible to normal users view historical foreign exchange rates published by the [European Central Bank](https://exchangeratesapi.io/) #wip.
 
 ## UML Diagrams
-- [Database ER](https://app.lucidchart.com/invitations/accept/9553cefb-f077-47ca-ba30-e7e690ef0425)
-- [Domain Model](https://app.lucidchart.com/invitations/accept/6f283daf-d6e9-41d7-9004-be91880f93e4)
+- [Database ER](https://app.lucidchart.com/documents/view/fab19c66-dac6-4593-8c3e-db541dd7c595)
+- [Domain Model](https://app.lucidchart.com/documents/view/cf232d10-2eb4-46f1-ae75-574167070460)
 
 ## Running locally
 1. Download the project
