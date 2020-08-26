@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.4.6
+      with:
+        # This will be used for authentication. You can find it in your heroku homepage account settings
+        heroku_api_key: f8c9cbfa-61cf-428d-8071-0318d8b52822
+        # Email that you use with heroku
+        heroku_email: rezehnde@gmail.com
+        # The appname to use for deploying/updating
+        heroku_app_name: rztimetobuy
+    - uses: actions/checkout@v2
+    - name: Dockerize
+      run: docker-compose up -d
