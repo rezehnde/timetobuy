@@ -50,5 +50,17 @@ docker-compose run --rm php php bin/console doctrine:fixtures:load
 - [EasyAdmin](https://github.com/EasyCorp/EasyAdminBundle)
 - [Docker](https://www.docker.com/)
 
+### Quality assurance
+
+0. Run the docker commands above
+1. Download [Sonarqube ZIP](https://www.sonarqube.org/success-download-community-edition/)
+2. Unzip the files and add the ```bin``` directory to your PATH
+3. Add the project on [//localhost:8080](//localhost:8080) with credentials (admin:bitnami) and get the ```sonar.login``` value
+4. Run this command line ()
+
+```
+c:\sonarq\bin\sonar-scanner.bat -D"sonar.projectKey=timetobuy" -D"sonar.sources=." -D"sonar.host.url=http://localhost:8080" -D"sonar.login=307ac1af6011ff310f88b806994366d32f3dfef1"
+```
+
 ### Credits
 _Icon by [Icons8](https://icons8.com)_

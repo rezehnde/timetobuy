@@ -1,0 +1,1 @@
+c:\sonarq\bin\sonar-scanner.bat -D"sonar.projectKey=timetobuy" -D"sonar.sources=." -D"sonar.host.url=http://localhost:8080" -D"sonar.login=307ac1af6011ff310f88b806994366d32f3dfef1"

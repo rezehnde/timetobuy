@@ -28,8 +28,7 @@ class GroupCrudController extends AbstractCrudController
     {
         $entityInstance = $context->getEntity()->getInstance();
 
-        if ($entityInstance instanceof Group) {
-            if ($entityInstance->getUsers()->count() > 0) {
+        if ($entityInstance instanceof Group && $entityInstance->getUsers()->count() > 0) {
                 $this->addFlash('error', 'You cannot delete group with users.');
 
                 $crudUrlGenerator = $this->get(CrudUrlGenerator::class);
@@ -38,7 +37,6 @@ class GroupCrudController extends AbstractCrudController
                     ->setController(GroupCrudController::class)
                     ->setAction('index')
                     ->generateUrl());
-            }
         }
 
         return parent::delete($context);
