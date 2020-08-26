@@ -30,10 +30,6 @@ class UserCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             EmailField::new('email'),
-            TextField::new('password')
-                ->setFormType(PasswordType::class)
-                ->setFormTypeOption('always_empty', false)
-                ->hideOnIndex(),
             ChoiceField::new('roles')
                 ->setChoices(['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER'])
                 ->allowMultipleChoices(),
